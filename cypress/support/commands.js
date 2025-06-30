@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', (username = 'admin', password = 'admin') => {
+  cy.visit('https://hom.appposto.com.br/login/ecoposto');
+  cy.get('#username-input').clear().type(username);
+  cy.get('#password-input').clear().type(password);
+  cy.wait(2000);
+  cy.xpath('/html/body/app-root/app-login/div/div/div/section[1]/div[2]/form/button').click();
+  cy.wait(2000);
+});

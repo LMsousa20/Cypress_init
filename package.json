@@ -4,6 +4,8 @@
     "cypress": "^14.4.0"
   },
   "scripts": {
-    "cy:open": "cypress open"
-  }
+    "Abrir o Cypress": "cypress open",
+    "Arquivos_Gerais:LOGS": "npx cypress run --browser edge --spec 'cypress/e2e/Arquivos_gerais.cy.js'",
+    "Arquivos_Gerais:Visual": "npx cypress open --browser electron --e2e cypress/e2e/Arquivos_gerais.cy.js"
+     }
 }

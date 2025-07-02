@@ -24,11 +24,35 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('login', (username = 'admin', password = 'admin') => {
-  cy.visit('https://hom.appposto.com.br/login/ecoposto');
+Cypress.Commands.add('login', (username = 'admin', password = 'admin', tenantId = 'posto-mirla-01') => {
+  cy.visit('/login/'+tenantId);
   cy.get('#username-input').clear().type(username);
   cy.get('#password-input').clear().type(password);
-  cy.wait(2000);
   cy.xpath('/html/body/app-root/app-login/div/div/div/section[1]/div[2]/form/button').click();
-  cy.wait(2000);
+  cy.location('pathname').should('not.include', '/login')
+  .then(() => {
+    cy.log('Login realizado com sucesso!');
+    console.log('Login realizado com sucesso!');
+  })
+  cy.wait(500);
+    
+  
+});
+
+Cypress.Commands.add('limparCache', (options = {}) => {
+  const {
+    tempoEspera = 100,
+    log = true
+  } = options;
+
+  if (log) {
+    cy.log('**Limpando cache**');
+  }
+
+  cy.clearCookies({ log });
+  cy.clearLocalStorage({ log });
+  
+  if (tempoEspera > 0) {
+    cy.wait(tempoEspera, { log });
+  }
 });

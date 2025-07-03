@@ -5,15 +5,15 @@ describe('Arquivos', () => {
 });
 
     it('login', () => {
-        cy.login('admin', 'admin', 'ecoposto');
+        cy.login('admin', 'admin', 'posto-acs');
     });
 
   it('Exportando o arquivos SPED_ICMS', () => {
 
     cy.visit('opcoes/exportacao-de-arquivo/sped-icms');
     cy.wait(100);
-    cy.get('#mat-input-4').clear().type('01062025');
-    cy.get('#mat-input-5').clear().type('30062025');
+    cy.get('#mat-input-4').clear().type('01042025');
+    cy.get('#mat-input-5').clear().type('30042025');
     cy.get('#salvar-button').click();
     cy.wait(200);
     cy.get('#salvar-button').should('be.visible').click();
@@ -33,8 +33,8 @@ describe('Arquivos', () => {
 
     cy.visit('opcoes/exportacao-de-arquivo/fortesac-fiscal');
     cy.wait(100);
-    cy.get('#mat-input-5').clear().type('01062025');
-    cy.get('#mat-input-6').clear().type('30062025');
+    cy.get('#mat-input-5').clear().type('01042025');
+    cy.get('#mat-input-6').clear().type('30042025');
     cy.get('#salvar-button').click();
     cy.get('#baixar_arquivo_fiscal_dialog > #div-modal-dialog > #div-modal-content > #div-modal-header > #exampleModalLabel')
       .should('contain', 'Arquivo Fortes AC gerado').then(() => {

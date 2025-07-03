@@ -56,3 +56,4 @@ Cypress.Commands.add('limparCache', (options = {}) => {
     cy.wait(tempoEspera, { log });
   }
 });
+

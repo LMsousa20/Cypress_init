@@ -5,8 +5,8 @@ describe('FORTES_AC', () => {
     cy.login('admin', 'admin', 'ecoposto');
     cy.visit('opcoes/exportacao-de-arquivo/fortesac-fiscal');
     cy.wait(500);
-    cy.get('#mat-input-5').clear().type('01062025');
-    cy.get('#mat-input-6').clear().type('30062025');
+    cy.get('#mat-input-5').clear().type('01052025');
+    cy.get('#mat-input-6').clear().type('30052025');
     cy.get('#salvar-button').click();
     cy.get('#baixar_arquivo_fiscal_dialog > #div-modal-dialog > #div-modal-content > #div-modal-header > #exampleModalLabel')
       .should('contain', 'Arquivo Fortes AC gerado').then(() => {

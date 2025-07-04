@@ -11,7 +11,7 @@ describe('Usuario_funcionario', () => {
   });
 
   it('login', () => {
-    cy.login('sinapse', 'Acs@2410', 'paraiso');
+    cy.login('sinapse', 'Acs@2410', 'lbrevendedora');
   });
 
   it('Criando usuario', () => {
